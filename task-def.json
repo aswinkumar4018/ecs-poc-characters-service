@@ -1,0 +1,37 @@
+{
+    "executionRoleArn": "arn:aws:iam::468656523255:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/fargate/service/characters",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "fargate"
+                }
+            },
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "containerPort": 80
+                }
+            ],
+            "cpu": 0,
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "image": "468656523255.dkr.ecr.us-east-1.amazonaws.com/characters:latest",
+            "essential": true,
+            "name": "characters"
+        }
+    ],
+    "memory": "512",
+    "family": "service_characters",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "256",
+    "volumes": []
+}
